@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const Authorize_1 = require("../middleware/Authorize");
+const dashboardController_1 = require("../controllers/dashboard/dashboardController");
+var router = express_1.default.Router();
+router.get('/announcements', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getAnnouncementsForDashboard)(req, res, next));
+router.get('/events', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getTodayEvents)(req, res, next));
+router.get('/timesheet', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getTimeSheet)(req, res, next));
+router.get('/admin', (0, Authorize_1.Authorize)('admin_dashboard.view'), (req, res, next) => (0, dashboardController_1.getEmployeeMetaData)(req, res, next));
+router.get('/leave-table', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getSelfLeaveStatus)(req, res, next));
+router.get('/admin/leave-table', (0, Authorize_1.Authorize)('admin_dashboard.view'), (req, res, next) => (0, dashboardController_1.getAdminSpecificLeaveData)(req, res, next));
+router.get('/admin/attendance-table', (0, Authorize_1.Authorize)('admin_dashboard.view'), (req, res, next) => (0, dashboardController_1.getAdminSpecificAttendanceData)(req, res, next));
+router.get('/admin/division-summary', (0, Authorize_1.Authorize)('admin_dashboard.view'), (req, res, next) => (0, dashboardController_1.getAdminDivisionSummary)(req, res, next));
+router.get('/manager/attendance-table', (0, Authorize_1.Authorize)('manager_dashboard.view'), (req, res, next) => (0, dashboardController_1.getManagerSpecificAttendanceData)(req, res, next));
+router.get('/manager/leave-table', (0, Authorize_1.Authorize)('manager_dashboard.view'), (req, res, next) => (0, dashboardController_1.getManagerSpecificLeaveData)(req, res, next));
+router.get('/manager/events', (0, Authorize_1.Authorize)('manager_dashboard.view'), (req, res, next) => (0, dashboardController_1.getManagerEvents)(req, res, next));
+router.get('/manager/requests-summary', (0, Authorize_1.Authorize)('manager_dashboard.view'), (req, res, next) => (0, dashboardController_1.getManagerRequestsSummary)(req, res, next));
+router.get('/team', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getMyTeam)(req, res, next));
+router.get('/attendance-summary', (0, Authorize_1.Authorize)('employee_dashboard.view'), (req, res, next) => (0, dashboardController_1.getEmployeeAttendanceSummary)(req, res, next));
+exports.default = router;

@@ -1,0 +1,93 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CompanyCreationSchema = exports.CompanyAddressCreationSchema = exports.EmployeeAddressCreationSchema = void 0;
+const joi_1 = __importDefault(require("joi"));
+const date = new Date();
+exports.EmployeeAddressCreationSchema = joi_1.default.object({
+    employee_permanent_address: joi_1.default.string().required().example('A-36'),
+    employee_permanent_pincode: joi_1.default.string().required().example('201301'),
+    employee_permanent_city: joi_1.default.string().required().example('Noida'),
+    employee_permanent_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    employee_permanent_country_id: joi_1.default.number().required().example(1),
+    employee_permanent_mobile: joi_1.default.number().required().example(9773914237),
+    employee_present_mobile: joi_1.default.number().required().example(9773914237),
+    employee_present_address: joi_1.default.string().required().example('A-36'),
+    employee_present_pincode: joi_1.default.string().required().example('201301'),
+    employee_present_city: joi_1.default.string().required().example('Noida'),
+    employee_present_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    employee_present_country_id: joi_1.default.string().required().example(1),
+    user_id: joi_1.default.number()
+});
+exports.CompanyAddressCreationSchema = joi_1.default.object({
+    company_present_address: joi_1.default.string().required().example('A-34'),
+    company_present_pincode: joi_1.default.string().required().example('201301'),
+    company_present_city: joi_1.default.string().required().example('Noida'),
+    company_present_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    company_present_country_id: joi_1.default.number().required().example(1),
+    company_present_mobile: joi_1.default.string().required().example('9773914237'),
+    company_permanent_address: joi_1.default.string().required().example('A-36'),
+    company_permanent_pincode: joi_1.default.string().required().example('201301'),
+    company_permanent_city: joi_1.default.string().required().example('Noida'),
+    company_permanent_state: joi_1.default.string().required().example('Country'),
+    company_permanent_country_id: joi_1.default.number().required().example(1),
+    company_permanent_mobile: joi_1.default.string().required().example('9773914237'),
+    company_id: joi_1.default.number()
+});
+exports.CompanyCreationSchema = joi_1.default.object({
+    company_name: joi_1.default.string().required().example('Glocalview Infotech'),
+    company_email: joi_1.default.string().email().required().example('gvnoida@gmail.com'),
+    company_mobile: joi_1.default.number().required().example(9773914237),
+    teamsize: joi_1.default.number().required().example(100),
+    industryId: joi_1.default.number().required().example(1),
+    domain: joi_1.default.string().required().example('glocalview'),
+    pan: joi_1.default.string().required().example('DBHSG0596'),
+    gst: joi_1.default.string().required().example('32AAUFR3713P2ZM'),
+    company_prefix: joi_1.default.string().required().example('GV'),
+    employee_name: joi_1.default.string().required().example('Anugrah Bhatt'),
+    employee_generated_id: joi_1.default.string().required().example('GV-123'),
+    date_of_joining: joi_1.default.date(),
+    probation_period: joi_1.default.string(),
+    probation_due_date: joi_1.default.date(),
+    designation: joi_1.default.string(),
+    department: joi_1.default.string(),
+    work_location: joi_1.default.string(),
+    level: joi_1.default.string(),
+    grade: joi_1.default.string(),
+    cost_center: joi_1.default.string(),
+    employee_official_email: joi_1.default.string(),
+    employee_personal_email: joi_1.default.string(),
+    dob_adhaar: joi_1.default.string(),
+    dob_celebrated: joi_1.default.string(),
+    employee_gender_id: joi_1.default.number().required(),
+    employee_password: joi_1.default.string(),
+    role_id: joi_1.default.number(),
+    employee_permanent_address: joi_1.default.string().required().example('A-36'),
+    employee_permanent_pincode: joi_1.default.string().required().example('201301'),
+    employee_permanent_city: joi_1.default.string().required().example('Noida'),
+    employee_permanent_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    employee_permanent_country_id: joi_1.default.string().required().example('India'),
+    employee_permanent_mobile: joi_1.default.number().required().example(9773914237),
+    employee_present_mobile: joi_1.default.number().required().example(9773914237),
+    employee_present_address: joi_1.default.string().required().example('A-36'),
+    employee_present_pincode: joi_1.default.string().required().example('201301'),
+    employee_present_city: joi_1.default.string().required().example('Noida'),
+    employee_present_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    employee_present_country_id: joi_1.default.string().required().example('India'),
+    user_id: joi_1.default.number(),
+    company_present_address: joi_1.default.string().required().example('A-34'),
+    company_present_pincode: joi_1.default.string().required().example('201301'),
+    company_present_city: joi_1.default.string().required().example('Noida'),
+    company_present_state: joi_1.default.string().required().example('Uttar Pradesh'),
+    company_present_country_id: joi_1.default.string().required().example('India'),
+    company_present_mobile: joi_1.default.string().required().example('9773914237'),
+    company_permanent_address: joi_1.default.string().required().example('A-36'),
+    company_permanent_pincode: joi_1.default.string().required().example('201301'),
+    company_permanent_city: joi_1.default.string().required().example('Noida'),
+    company_permanent_state: joi_1.default.string().required().example('Country'),
+    company_permanent_country_id: joi_1.default.required().example('India'),
+    company_permanent_mobile: joi_1.default.string().required().example('9773914237'),
+    company_id: joi_1.default.number()
+});

@@ -1,0 +1,32 @@
+{
+  "development": {
+    "username": "minhrms_staging",
+    "password": "rP_rxZT1-JE&",
+    "database": "minhrms_staging",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": true
+  },
+  "test": {
+    "username": "minhrms_staging",
+    "password": "rP_rxZT1-JE&",
+    "database": "minhrms_staging",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "username": "minhrms_staging",
+    "password": "rP_rxZT1-JE&",
+    "database": "minhrms_staging",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  }
+}

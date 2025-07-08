@@ -1,0 +1,47 @@
+version: '3'
+services:
+  nodejs:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: hrms-backend
+    ports:
+      - "3000:3000" 
+    environment:
+      - DB_NAME=testdb
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_HOST=localhost
+      - DB_PORT=${DB_PORT}
+    env_file:
+      - ./.env
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    container_name: hrms-mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=testdb
+      - MYSQL_PORT=3306
+      - MYSQL_USER=user
+    volumes:
+      - db:/var/lib/mysql
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  db:
+
+networks:
+  mynetwork:
