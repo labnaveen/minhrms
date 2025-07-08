@@ -1,0 +1,1 @@
+import{q as s}from"./index-3ec7abe5.js";const o="/assets/cover-image-login-c171ed8c.png",n=async r=>await s("auth/login",r),e=async r=>await s("auth/forget-password",r),c=async r=>await s("auth/otp-verify",r),u=async r=>await s("auth/reset-password",r);export{o as L,e as f,n as l,u as r,c as v};

@@ -1,0 +1,12 @@
+.env
+node_modules
+config.json
+/dist
+
+uploads/images/*
+uploads/file/*
+media!ibrary/images/*
+media!ibrary/documents/*
+media!ibrary/other/*
+media!ibrary/file/*sendgrid.env
+sendgrid.env
